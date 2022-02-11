@@ -1,0 +1,33 @@
+<h2>Create Your Recipe </h2>
+<form [formGroup]="form" (ngSubmit)="processForm()">
+  <div>
+    <h3> Title</h3>
+    <input type="text" id="title" formControlName="title">
+  </div>
+  <div>
+    <h3> Ingredients</h3>
+    <button type="button" (click)="addIngredient()">+</button>
+  </div>
+  <div>
+    <div *ngFor="let arr of ingredients.controls; let i = index">
+      <input type="text" [formControl]="$any(arr)">
+      <button type="button" (click)="deleteIngredient(i)">x</button>
+    </div>
+  </div>
+   <div>
+      <h3> Instructions</h3>
+      <textarea id="instructions" cols="30" rows="5"
+      formControlName="instruction"></textarea>
+  </div>
+  <div>
+    <h3> Image</h3>
+    <input type="text" id="image" formControlName="image">
+  </div>
+  <div>
+    <button type="button" [routerLink]="['']">Back</button>
+    <button type="submit" [disabled]="form.invalid">Add</button>
+  </div>
+</form>
+
+
+

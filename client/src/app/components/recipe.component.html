@@ -1,0 +1,4 @@
+<div *ngFor="let r of recipes" [routerLink]="['/recipe', r.id]">
+  <li>{{ r.title }}</li>
+</div>
+<ng-content></ng-content>
